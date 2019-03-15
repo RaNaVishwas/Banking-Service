@@ -186,3 +186,37 @@ public class Records extends BankRecord {
 			e.printStackTrace();
 		}		
 	}
+/** 
+	 * 
+	 * This method displays and writes into the file bankrecord.txt number of males with both a car and 1 child per location
+	 */
+		public static void male_Compare_lab3() {
+			
+			Arrays.sort(bankObject_lab, new MaleComparator());
+			int in_nerCity_MaleCnt_labs = 0, ru_ralMale_Cnt_labs = 0, sub_urbanMale_Cnt_lab = 0, town_MaleCnt_labs = 0;
+			for (int xy_indi = 0; xy_indi < bankObject_lab.length; xy_indi++){
+				if(bankObject_lab[xy_indi].getRegion_lab3_Reg().equals("INNER_CITY") && bankObject_lab[xy_indi].getClass().equals("YES") && (bankObject_lab[xy_indi].getChildren_lab3()== 1) && bankObject_lab[xy_indi].getSex_lab3().equals("MALE") )
+					in_nerCity_MaleCnt_labs++;
+				if(bankObject_lab[xy_indi].getRegion_lab3_Reg().equals("RURAL") && bankObject_lab[xy_indi].getClass().equals("YES") && (bankObject_lab[xy_indi].getChildren_lab3()==1) && bankObject_lab[xy_indi].getSex_lab3().equals("MALE") )
+					ru_ralMale_Cnt_labs++;
+				if(bankObject_lab[xy_indi].getRegion_lab3_Reg().equals("SUBURBAN") && bankObject_lab[xy_indi].getClass().equals("YES") && (bankObject_lab[xy_indi].getChildren_lab3()==1) && bankObject_lab[xy_indi].getSex_lab3().equals("MALE") )
+					sub_urbanMale_Cnt_lab++;
+				if(bankObject_lab[xy_indi].getRegion_lab3_Reg().equals("TOWN") && bankObject_lab[xy_indi].getClass().equals("YES") && (bankObject_lab[xy_indi].getChildren_lab3()==1) && bankObject_lab[xy_indi].getSex_lab3().equals("MALE") )
+					town_MaleCnt_labs++;
+				}
+			System.out.println("\nCount of Inner city region males having a child and owning a car :" +in_nerCity_MaleCnt_labs );
+			System.out.println("Count of Rural region males having a child and owning a car :" +ru_ralMale_Cnt_labs );
+			System.out.println("Count of Suburban city region males having a child and owning a car :" +sub_urbanMale_Cnt_lab );
+			System.out.println("Count of Town city region males having a child and owning a car :" +town_MaleCnt_labs );
+			try{
+				file_write_lab3.write("\n\nCount of Inner city region males having a child and owning a car :" +in_nerCity_MaleCnt_labs+"\nCount of Rural region males having a child and owning a car : "+ru_ralMale_Cnt_labs+"\nCount of Suburban city region males having a child and owning a car :" +sub_urbanMale_Cnt_lab+"\nCount of Town city region males having a child and owning a car :" +town_MaleCnt_labs);
+			}catch(IOException e)
+			{
+				e.printStackTrace();
+			}
+			}
+		}
+© 2019 GitHub, Inc.
+Terms
+Privacy
+Security
