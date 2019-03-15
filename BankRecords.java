@@ -210,3 +210,48 @@ public int getAge_lab3() {
 /**
  * The print method displays the first 25 records and displays data along with the header
  */
+
+@Override
+	void print() {
+		// TODO Auto-generated method stub
+		int ind_ex_lab;
+		System.out.printf("%-10s%-5s%-10s%-15s%-15s%-15s", "ID", "AGE","SEX", "REGION", "INCOME", "MORTGAGE");
+		System.out.println();
+
+		for (ind_ex_lab = 0; ind_ex_lab < 25; ind_ex_lab++) {
+			System.out.printf("%-10s", bankObject_lab[ind_ex_lab].getId_lab3());
+			System.out.printf("%-5s", bankObject_lab[ind_ex_lab].getAge_lab3());
+			System.out.printf("%-10s", bankObject_lab[ind_ex_lab].getSex_lab3());
+			System.out.printf("%-15s", bankObject_lab[ind_ex_lab].getRegion_lab3_Reg());
+			System.out.printf("%-15s", bankObject_lab[ind_ex_lab].get_Income_lab4());
+			System.out.printf("%-15s", bankObject_lab[ind_ex_lab].getMort_gage_lab3());
+			System.out.println();
+		}
+	}
+/**
+ * The process method reads the array list and adds the data to the instance field using the setter of each instance variable
+ */
+	@Override
+	public void process() {
+		// TODO Auto-generated method stub
+		// add data values from array list to array
+		int index_lab = 0;
+		for (List<String> row_dat_lab : arr_ay_lab3) {
+			bankObject_lab[index_lab] = new BankRecord(); // instancing the object
+			bankObject_lab[index_lab].setId(row_dat_lab.get(0));
+			bankObject_lab[index_lab].setAge(Integer.parseInt(row_dat_lab.get(1)));
+			bankObject_lab[index_lab].setSex(row_dat_lab.get(2));
+			bankObject_lab[index_lab].setRegion(row_dat_lab.get(3));
+			bankObject_lab[index_lab].setIncome(Double.parseDouble(row_dat_lab.get(4)));
+			bankObject_lab[index_lab].setMarried_lab3(row_dat_lab.get(5));
+			bankObject_lab[index_lab].setChildren_lab3(Integer.parseInt(row_dat_lab.get(6)));
+			bankObject_lab[index_lab].setCar_dat_lab(row_dat_lab.get(7));
+			bankObject_lab[index_lab].setSave_account_lab3(row_dat_lab.get(8));
+			bankObject_lab[index_lab].setCurrent_account_lab3(row_dat_lab.get(9));
+			bankObject_lab[index_lab].setMort_gage_lab3(row_dat_lab.get(10));
+			bankObject_lab[index_lab].set_Pep_lab3(row_dat_lab.get(11));
+			index_lab += 1;
+		}
+	}
+}
+
